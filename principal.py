@@ -11,6 +11,7 @@ super=4/100
 drog=12/100
 
 #variables Izquierda Superior
+producto1="Lapiz"
 tipo1=listaTipo[0]
 cantBod1=18
 cantMin1=5
@@ -19,14 +20,16 @@ cantVen1=0
 venta1=0
 
 #variables Derecha Superior
+producto2="Aspirina"
 tipo2=listaTipo[2]
-cantBod2=7
+cantBod2=30
 cantMin2=8
 precio2=50
 cantVen2=0
 venta2=0
 
 #variables Izquierda Inferior
+producto3="Borrador"
 tipo3=listaTipo[0]
 cantBod3=9
 cantMin3=10
@@ -35,8 +38,9 @@ cantVen3=0
 venta3=0
 
 #variables Derecha Inferior
+producto4="Pan"
 tipo4=listaTipo[1]
-cantBod4=19
+cantBod4=24
 cantMin4=20
 precio4=15
 cantVen4=0
@@ -354,47 +358,195 @@ def venderDerInf():
         ventanaVender.mainloop()
 
 def cambiarIzqSup():
-    print("hola")
+    def guardar():
+        tituloProductoIzqSup.configure(text=cambNombreTxt.get())
+        resul1IzqSup.configure(text=cambTipoCombo.get())
+        resul2IzqSup.configure(text=cantProductoTxt.get())
+        resul5IzqSup.configure(text=cantMinimaTxt.get())
+        messagebox.showinfo(title="Advertencia",message=("Se ha Guardado Correctamente"))
+        
+    ventanaCambiar=Tk()
+    ventanaCambiar.title("Cambiar")
+    ventanaCambiar.geometry("500x140")
+        
+    cambNombre=Label(ventanaCambiar, text="Nombre del Producto:", font=("Arial",12), fg="black")
+    cambNombre.place(x=0,y=10)
+    cambNombreTxt=Entry(ventanaCambiar,width=21)
+    cambNombreTxt.place(x=230,y=11)
+    
+    cambTipo=Label(ventanaCambiar, text="Tipo de Producto:", font=("Arial",12), fg="black")
+    cambTipo.place(x=0,y=30)
+    cambTipoCombo=ttk.Combobox(ventanaCambiar,width=21)
+    cambTipoCombo.place(x=230,y=31)
+    cambTipoCombo["values"]=listaTipo
+    
+    cantProducto=Label(ventanaCambiar, text="Cantidad del Producto:", font=("Arial",12), fg="black")
+    cantProducto.place(x=0,y=50)
+    cantProductoTxt=Entry(ventanaCambiar,width=21)
+    cantProductoTxt.place(x=230,y=51)
+    
+    cantMinima=Label(ventanaCambiar, text="Cantidad Minima del Producto:", font=("Arial",12), fg="black")
+    cantMinima.place(x=0,y=70)
+    cantMinimaTxt=Entry(ventanaCambiar,width=21)
+    cantMinimaTxt.place(x=230,y=71)
+    
+    botonCambiarDatos=Button(ventanaCambiar,text="Cambiar", font=("Times New Roman",12),width=13,height=1, command=guardar)
+    botonCambiarDatos.place(x=370,y=71)
+        
+    ventanaCambiar.mainloop()
 
 def cambiarDerSup():
-    print("hola")
+    def guardar():
+        tituloProductoDerSup.configure(text=cambNombreTxt.get())
+        resul1DerSup.configure(text=cambTipoCombo.get())
+        resul2DerSup.configure(text=cantProductoTxt.get())
+        resul5DerSup.configure(text=cantMinimaTxt.get())
+        messagebox.showinfo(title="Advertencia",message=("Se ha Guardado Correctamente"))
+        
+    ventanaCambiar=Tk()
+    ventanaCambiar.title("Cambiar")
+    ventanaCambiar.geometry("500x140")
+        
+    cambNombre=Label(ventanaCambiar, text="Nombre del Producto:", font=("Arial",12), fg="black")
+    cambNombre.place(x=0,y=10)
+    cambNombreTxt=Entry(ventanaCambiar,width=21)
+    cambNombreTxt.place(x=230,y=11)
+    
+    cambTipo=Label(ventanaCambiar, text="Tipo de Producto:", font=("Arial",12), fg="black")
+    cambTipo.place(x=0,y=30)
+    cambTipoCombo=ttk.Combobox(ventanaCambiar,width=21)
+    cambTipoCombo.place(x=230,y=31)
+    cambTipoCombo["values"]=listaTipo
+    
+    cantProducto=Label(ventanaCambiar, text="Cantidad del Producto:", font=("Arial",12), fg="black")
+    cantProducto.place(x=0,y=50)
+    cantProductoTxt=Entry(ventanaCambiar,width=21)
+    cantProductoTxt.place(x=230,y=51)
+    
+    cantMinima=Label(ventanaCambiar, text="Cantidad Minima del Producto:", font=("Arial",12), fg="black")
+    cantMinima.place(x=0,y=70)
+    cantMinimaTxt=Entry(ventanaCambiar,width=21)
+    cantMinimaTxt.place(x=230,y=71)
+    
+    botonCambiarDatos=Button(ventanaCambiar,text="Cambiar", font=("Times New Roman",12),width=13,height=1, command=guardar)
+    botonCambiarDatos.place(x=370,y=71)
+        
+    ventanaCambiar.mainloop()
 
 def cambiarIzqInf():
-    print("hola")
+    def guardar():
+        tituloProductoIzqInf.configure(text=cambNombreTxt.get())
+        resul1IzqInf.configure(text=cambTipoCombo.get())
+        resul2IzqInf.configure(text=cantProductoTxt.get())
+        resul5IzqInf.configure(text=cantMinimaTxt.get())
+        messagebox.showinfo(title="Advertencia",message=("Se ha Guardado Correctamente"))
+        
+    ventanaCambiar=Tk()
+    ventanaCambiar.title("Cambiar")
+    ventanaCambiar.geometry("500x140")
+        
+    cambNombre=Label(ventanaCambiar, text="Nombre del Producto:", font=("Arial",12), fg="black")
+    cambNombre.place(x=0,y=10)
+    cambNombreTxt=Entry(ventanaCambiar,width=21)
+    cambNombreTxt.place(x=230,y=11)
+    
+    cambTipo=Label(ventanaCambiar, text="Tipo de Producto:", font=("Arial",12), fg="black")
+    cambTipo.place(x=0,y=30)
+    cambTipoCombo=ttk.Combobox(ventanaCambiar,width=21)
+    cambTipoCombo.place(x=230,y=31)
+    cambTipoCombo["values"]=listaTipo
+    
+    cantProducto=Label(ventanaCambiar, text="Cantidad del Producto:", font=("Arial",12), fg="black")
+    cantProducto.place(x=0,y=50)
+    cantProductoTxt=Entry(ventanaCambiar,width=21)
+    cantProductoTxt.place(x=230,y=51)
+    
+    cantMinima=Label(ventanaCambiar, text="Cantidad Minima del Producto:", font=("Arial",12), fg="black")
+    cantMinima.place(x=0,y=70)
+    cantMinimaTxt=Entry(ventanaCambiar,width=21)
+    cantMinimaTxt.place(x=230,y=71)
+    
+    botonCambiarDatos=Button(ventanaCambiar,text="Cambiar", font=("Times New Roman",12),width=13,height=1, command=guardar)
+    botonCambiarDatos.place(x=370,y=71)
+        
+    ventanaCambiar.mainloop()
 
 def cambiarDerInf():
-    print("hola")
+    def guardar():
+        tituloProductoDerInf.configure(text=cambNombreTxt.get())
+        resul1DerInf.configure(text=cambTipoCombo.get())
+        resul2DerInf.configure(text=cantProductoTxt.get())
+        resul5DerInf.configure(text=cantMinimaTxt.get())
+        messagebox.showinfo(title="Advertencia",message=("Se ha Guardado Correctamente"))
+        
+    ventanaCambiar=Tk()
+    ventanaCambiar.title("Cambiar")
+    ventanaCambiar.geometry("500x140")
+        
+    cambNombre=Label(ventanaCambiar, text="Nombre del Producto:", font=("Arial",12), fg="black")
+    cambNombre.place(x=0,y=10)
+    cambNombreTxt=Entry(ventanaCambiar,width=21)
+    cambNombreTxt.place(x=230,y=11)
+    
+    cambTipo=Label(ventanaCambiar, text="Tipo de Producto:", font=("Arial",12), fg="black")
+    cambTipo.place(x=0,y=30)
+    cambTipoCombo=ttk.Combobox(ventanaCambiar,width=21)
+    cambTipoCombo.place(x=230,y=31)
+    cambTipoCombo["values"]=listaTipo
+    
+    cantProducto=Label(ventanaCambiar, text="Cantidad del Producto:", font=("Arial",12), fg="black")
+    cantProducto.place(x=0,y=50)
+    cantProductoTxt=Entry(ventanaCambiar,width=21)
+    cantProductoTxt.place(x=230,y=51)
+    
+    cantMinima=Label(ventanaCambiar, text="Cantidad Minima del Producto:", font=("Arial",12), fg="black")
+    cantMinima.place(x=0,y=70)
+    cantMinimaTxt=Entry(ventanaCambiar,width=21)
+    cantMinimaTxt.place(x=230,y=71)
+    
+    botonCambiarDatos=Button(ventanaCambiar,text="Cambiar", font=("Times New Roman",12),width=13,height=1, command=guardar)
+    botonCambiarDatos.place(x=370,y=71)
+        
+    ventanaCambiar.mainloop()
 
 def productoMasVendido():
     if venta1>venta2 and venta1>venta3 and venta1>venta4:
-        messagebox.showinfo(title="Producto Mas Vendido",message=(f"El Producto mas vendido es el {venta1}"))
+        messagebox.showinfo(title="Producto Mas Vendido",message=(f"El Producto mas vendido es el {producto1}"))
     elif venta2>venta1 and venta2>venta3 and venta2>venta4:
-        messagebox.showinfo(title="Producto Mas Vendido",message=(f"El Producto mas vendido es el {venta2}"))
+        messagebox.showinfo(title="Producto Mas Vendido",message=(f"El Producto mas vendido es el {producto2}"))
     elif venta3>venta1 and venta3>venta2 and venta3>venta4:
-        messagebox.showinfo(title="Producto Mas Vendido",message=(f"El Producto mas vendido es el {venta3}"))
+        messagebox.showinfo(title="Producto Mas Vendido",message=(f"El Producto mas vendido es el {producto3}"))
     else:
-        messagebox.showinfo(title="Producto Mas Vendido",message=(f"El Producto mas vendido es el {venta4}"))
+        messagebox.showinfo(title="Producto Mas Vendido",message=(f"El Producto mas vendido es el {producto4}"))
     
 def productoMenosVendido():
     if venta1<venta2 and venta1<venta3 and venta1<venta4:
-        messagebox.showinfo(title="Producto menos Vendido",message=(f"El Producto menos vendido es el {venta1}"))
+        messagebox.showinfo(title="Producto menos Vendido",message=(f"El Producto menos vendido es el {producto1}"))
     elif venta2<venta1 and venta2<venta3 and venta2<venta4:
-        messagebox.showinfo(title="Producto menos Vendido",message=(f"El Producto menos vendido es el {venta2}"))
+        messagebox.showinfo(title="Producto menos Vendido",message=(f"El Producto menos vendido es el {producto2}"))
     elif venta3<venta1 and venta3<venta2 and venta3<venta4:
-        messagebox.showinfo(title="Producto menos Vendido",message=(f"El Producto menos vendido es el {venta3}"))
+        messagebox.showinfo(title="Producto menos Vendido",message=(f"El Producto menos vendido es el {producto3}"))
     else:
-        messagebox.showinfo(title="Producto menos Vendido",message=(f"El Producto menos vendido es el {venta4}"))
+        messagebox.showinfo(title="Producto menos Vendido",message=(f"El Producto menos vendido es el {producto4}"))
     
 def promedioVentas():
+    global venta1
+    global venta2
+    global venta3
+    global venta4
     ventaProm=int((venta1+venta2+venta3+venta4)/4)
     messagebox.showinfo(title="Promedio de Ventas",message=(f"El promedio de ventas es {ventaProm}"))
     
 def dineroEnCaja():
+    global venta1
+    global venta2
+    global venta3
+    global venta4
     ventaDinero=int(venta1+venta2+venta3+venta4)
     messagebox.showinfo(title="Dinero Total",message=(f"El dinero total es {ventaDinero}"))
 
 #Informacion Izquierda Superior
-tituloProductoIzqSup=Label(ventana, text="Lapiz", font=("Times New Roman",12,"bold"),fg="black")
+tituloProductoIzqSup=Label(ventana, text=producto1, font=("Times New Roman",12,"bold"),fg="black")
 tituloProductoIzqSup.place(x=10,y=75)
 
 tipo1IzqSup=Label(ventana, text="Tipo:", font=("Arial",12), fg="black")
@@ -432,7 +584,7 @@ botonCambiar=Button(ventana,text="Cambiar", font=("Times New Roman",12),width=13
 botonCambiar.place(x=265,y=270)
 
 #Informacion Derecha Superior
-tituloProductoDerSup=Label(ventana, text="Aspirina", font=("Times New Roman",12,"bold"),fg="black")
+tituloProductoDerSup=Label(ventana, text=producto2, font=("Times New Roman",12,"bold"),fg="black")
 tituloProductoDerSup.place(x=410,y=75)
 
 tipo1DerSup=Label(ventana, text="Tipo:", font=("Arial",12), fg="black")
@@ -470,7 +622,7 @@ botonCambiar=Button(ventana,text="Cambiar", font=("Times New Roman",12),width=13
 botonCambiar.place(x=665,y=270)
 
 #Informacion Izquierda Inferior
-tituloProductoIzqInf=Label(ventana, text="Borrador", font=("Times New Roman",12,"bold"),fg="black")
+tituloProductoIzqInf=Label(ventana, text=producto3, font=("Times New Roman",12,"bold"),fg="black")
 tituloProductoIzqInf.place(x=10,y=310)
 
 tipo1IzqInf=Label(ventana, text="Tipo:", font=("Arial",12), fg="black")
@@ -508,8 +660,8 @@ botonCambiar=Button(ventana,text="Cambiar", font=("Times New Roman",12),width=13
 botonCambiar.place(x=265,y=504)
 
 #Informacion Derecha Inferior
-tituloProductoDerSup=Label(ventana, text="Pan", font=("Times New Roman",12,"bold"),fg="black")
-tituloProductoDerSup.place(x=410,y=310)
+tituloProductoDerInf=Label(ventana, text=producto4, font=("Times New Roman",12,"bold"),fg="black")
+tituloProductoDerInf.place(x=410,y=310)
 
 tipo1DerInf=Label(ventana, text="Tipo:", font=("Arial",12), fg="black")
 tipo1DerInf.place(x=510,y=320)
@@ -557,7 +709,5 @@ botonPromedio.place(x=533,y=554)
 
 botonDineroEnCaja=Button(ventana,text="Dinero en Caja", font=("Times New Roman",12),width=28,height=1, command=dineroEnCaja)
 botonDineroEnCaja.place(x=269,y=588)
-
-opcionesEdad=ttk.Combobox(ventana)
 
 ventana.mainloop()
