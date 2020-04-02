@@ -1,0 +1,34 @@
+[
+  {
+    "nombre": "Lapiz",
+    "tipo": 0,
+    "cantidad_bodega": 18,
+    "valor_unitario": 550.0,
+    "cantidad_vendida": 0,
+    "cantidad_minima": 5
+  },
+  {
+    "nombre": "Aspirina",
+    "tipo": 2,
+    "cantidad_bodega": 25,
+    "valor_unitario": 109.5,
+    "cantidad_vendida": 0,
+    "cantidad_minima": 8
+  },
+  {
+    "nombre": "Borrador",
+    "tipo": 0,
+    "cantidad_bodega": 30,
+    "valor_unitario": 207.3,
+    "cantidad_vendida": 0,
+    "cantidad_minima": 10
+  },
+  {
+    "nombre": "Pan",
+    "tipo": 1,
+    "cantidad_bodega": 15,
+    "valor_unitario": 150.0,
+    "cantidad_vendida": 0,
+    "cantidad_minima": 20
+  }
+]
