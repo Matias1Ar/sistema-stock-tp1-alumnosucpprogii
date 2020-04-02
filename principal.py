@@ -583,5 +583,4 @@ lbl_fila3_Opciones.grid (column = 7, row = 16, sticky = 'w')
 lbl_fila4_Opciones = Label(ventana_opciones, text = '', font= ('Arial',9,'bold'),bg = 'lightcyan',relief = 'sunken', bd = 5, height = 2, width = 25)
 lbl_fila4_Opciones.grid (column = 7, row = 17, sticky = 'w')
 
-
 window.mainloop()
