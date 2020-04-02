@@ -10,8 +10,7 @@ producto2="aspirina"
 producto3="borrador"
 producto4="pan"
 productom=""
-#
-resultado=StringVar()
+resultado="1"
 window.resizable(0,0)
 #frameproductos1
 miFrame1 = Frame(window,width="400", height="320",bd="10",relief="groove",bg="dark blue")
@@ -40,11 +39,10 @@ def  crear_label(frame,nombre):
     Label(frame, text=" Cantidad vendida :", font=("Arial ", 11),bg="dark blue",fg="white").place(x=140, y=120)
     Label(frame, text=" Cantidad minima : ", font=("Arial ", 11),bg="dark blue",fg="white").place(x=140, y=150)
     for  i in  range(5):
-
         entry_resultados = Entry(frame)
-        entry_resultados.configure(state=DISABLED,width="11")
+        entry_resultados.configure(width="11")
         entry_resultados.place(x=270,y=y)
-        listaEntry.append(i)
+        listaEntry.append(entry_resultados)
         y+=30
     return  listaEntry
 #crear botones
@@ -62,13 +60,29 @@ def crearBotones(frame):
     return listaBtnes
 
 
-def cargarProductos(listaResultados):
-    return  None
+def cargarProductos(listaResultados,resulta1,resulta2,resulta3,resulta4,resulta5):
+    listaResultados[0].insert(0,resulta1)
+    listaResultados[1].insert(0,resulta2)
+    listaResultados[2].insert(0,resulta3)
+    listaResultados[3].insert(0,resulta4)
+    listaResultados[4].insert(0,resulta5)
+    #DESACTIVAR ENTRYS
+    for i in range(5):
+        listaResultados[i].config(state="disabled")
+
+
 #creando labels
 listaresfr1=crear_label(miFrame1,producto1)
 listaresfr2=crear_label(miFrame2,producto2)
 listaresfr3=crear_label(miFrame3,producto3)
 listaresfr4=crear_label(miFrame4,producto4)
+#cargarproductos
+cargarframe1=cargarProductos(listaresfr1,"papeleria",18,550.0,0,5)
+cargarframe2=cargarProductos(listaresfr2,"papeleria",18,550.0,0,5)
+cargarframe3=cargarProductos(listaresfr3,"papeleria",18,550.0,0,5)
+cargarframe4=cargarProductos(listaresfr4,"papeleria",18,550.0,0,5)
+
+
 
 #Creando botones
 listaBfram1=crearBotones(miFrame1)
