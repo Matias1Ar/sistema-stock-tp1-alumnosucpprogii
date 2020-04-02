@@ -48,7 +48,7 @@ venta4=0
 
 #ventana
 ventana=Tk()
-ventana.title("Trabajo Practico")
+ventana.title("Trabajo Práctico")
 ventana.geometry("800x620")
 
 #canvas titulo
@@ -202,10 +202,13 @@ def venderIzqSup():
     global cantBod1
     global cantMin1
     global cantVen1
+
+    
     cantVentaUni=0
     def guardar():
         global cantVen1
         global cantBod1
+        global venta1
         cantVen1+=float(cantVentaTxt.get())
         if tipo1==listaTipo[0]:
             venta1=float(cantVen1*(precio1+papel))
@@ -242,10 +245,12 @@ def venderDerSup():
     global cantBod2
     global cantMin2
     global cantVen2
+
     cantVentaUni=0
     def guardar():
         global cantVen2
         global cantBod2
+        global venta2
         cantVen2+=float(cantVentaTxt.get())
         if tipo2==listaTipo[0]:
             venta2=float(cantVen2*(precio2+papel))
@@ -282,10 +287,12 @@ def venderIzqInf():
     global cantBod3
     global cantMin3
     global cantVen3
+    
     cantVentaUni=0
     def guardar():
         global cantVen3
         global cantBod3
+        global venta3
         cantVen3+=float(cantVentaTxt.get())
         if tipo3==listaTipo[0]:
             venta3=float(cantVen3*(precio3+papel))
@@ -322,10 +329,12 @@ def venderDerInf():
     global cantBod4
     global cantMin4
     global cantVen4
+    
     cantVentaUni=0
     def guardar():
         global cantVen4
         global cantBod4
+        global venta4
         cantVen4+=float(cantVentaTxt.get())
         if tipo4==listaTipo[0]:
             venta4=float(cantVen4*(precio4+papel))
@@ -534,7 +543,7 @@ def promedioVentas():
     global venta2
     global venta3
     global venta4
-    ventaProm=int((venta1+venta2+venta3+venta4)/4)
+    ventaProm=float((venta1+venta2+venta3+venta4)/4)
     messagebox.showinfo(title="Promedio de Ventas",message=(f"El promedio de ventas es {ventaProm}"))
     
 def dineroEnCaja():
