@@ -246,22 +246,14 @@ def ProdMasVend():
     aspirina=int(EntryCantVen_DerArr.get())
     pan=int(EntryCantVen_DerAb.get())
     mayor=0
-    if lapiz > borrador:
-        if lapiz > aspirina:
-            if lapiz > pan:
-                mayor = LabelCantVenIzqAr
-    if borrador > lapiz:
-        if borrador > aspirina:
-            if borrador > pan:
-                mayor = LabelCantVenIzqAb
-    if aspirina > borrador:
-        if aspirina> lapiz:
-            if aspirina > pan:
-                mayor = LabelCantVenDerArr
-    if pan > borrador:
-        if pan> lapiz:
-            if pan > aspirina:
-                mayor = LabelCantVenDerAb
+    if lapiz > borrador and lapiz > aspirina and lapiz > pan:
+        mayor = LabelCantVenIzqAr
+    if borrador > lapiz and borrador > aspirina and borrador > pan:
+        mayor = LabelCantVenIzqAb
+    if aspirina > borrador and aspirina > lapiz and aspirina > pan:
+        mayor = LabelCantVenDerArr
+    if pan > borrador and pan > lapiz and pan > aspirina:
+        mayor = LabelCantVenDerAb
     if mayor != 0:
         mayor.config(bg="green")
         BotVender_DerAb.config(state=DISABLED)
@@ -284,22 +276,14 @@ def ProdMenVend():
     aspirina=int(EntryCantVen_DerArr.get())
     pan=int(EntryCantVen_DerAb.get())
     menor=0
-    if lapiz < borrador:
-        if lapiz < aspirina:
-            if lapiz < pan:
-                menor = LabelCantVenIzqAr
-    if borrador < lapiz:
-        if borrador < aspirina:
-            if borrador < pan:
-                menor = LabelCantVenIzqAb
-    if aspirina < borrador:
-        if aspirina < lapiz:
-            if aspirina < pan:
-                menor = LabelCantVenDerArr
-    if pan < borrador:
-        if pan < lapiz:
-            if pan < aspirina:
-                menor = LabelCantVenDerAb
+    if lapiz < borrador and lapiz < aspirina and lapiz < pan:
+        menor = LabelCantVenIzqAr
+    if borrador < lapiz and borrador < aspirina and borrador < pan:
+        menor = LabelCantVenIzqAb
+    if aspirina < borrador and aspirina < lapiz and aspirina < pan:
+        menor = LabelCantVenDerArr
+    if pan < borrador and pan < lapiz and pan < aspirina:
+        menor = LabelCantVenDerAb
     if menor != 0:
         menor.config(bg="red")
         BotVender_DerAb.config(state=DISABLED)
