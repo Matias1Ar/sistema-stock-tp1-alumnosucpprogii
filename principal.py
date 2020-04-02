@@ -33,7 +33,7 @@ def  crear_label(frame,nombre):
     y=30
     prod_nom=Label(frame, text=nombre, font=("Arial black ", 13),)
     prod_nom.place(x=0, y=0)
-    Label(frame, text="Tipo : ", font=("Arial ", 11),bg="dark blue",fg="white").place(x=140, y=30)
+    Label(frame, text="Tipo : ", font=("Arial  ", 11),bg="dark blue",fg="white").place(x=140, y=30)
     Label(frame, text="Cantidad bodega :", font=("Arial ", 11),bg="dark blue",fg="white").place(x=140, y=60)
     Label(frame, text="Valor unitario : ", font=("Arial ", 11),bg="dark blue",fg="white").place(x=140, y=90)
     Label(frame, text=" Cantidad vendida :", font=("Arial ", 11),bg="dark blue",fg="white").place(x=140, y=120)
@@ -77,10 +77,10 @@ listaresfr2=crear_label(miFrame2,producto2)
 listaresfr3=crear_label(miFrame3,producto3)
 listaresfr4=crear_label(miFrame4,producto4)
 #cargarproductos
-cargarframe1=cargarProductos(listaresfr1,"papeleria",18,550.0,0,5)
-cargarframe2=cargarProductos(listaresfr2,"papeleria",18,550.0,0,5)
-cargarframe3=cargarProductos(listaresfr3,"papeleria",18,550.0,0,5)
-cargarframe4=cargarProductos(listaresfr4,"papeleria",18,550.0,0,5)
+cargarframe1=cargarProductos(listaresfr1,"Papeleria",18,550.0,0,5)
+cargarframe2=cargarProductos(listaresfr2,"Drogueria",25,109.5,0,8)
+cargarframe3=cargarProductos(listaresfr3,"Papeleria",30,207.3,0,10)
+cargarframe4=cargarProductos(listaresfr4,"Supermercado",15,150.0,0,20)
 
 
 
@@ -89,4 +89,14 @@ listaBfram1=crearBotones(miFrame1)
 listaBfram2=crearBotones(miFrame2)
 listaBfram3=crearBotones(miFrame3)
 listaBfram4=crearBotones(miFrame4)
+#Botones opciones
+Label(miFrameop, text="Opciones: ", font=("Arial  ", 11), bg="dark blue", fg="white").place(x=0, y=0)
+btnOP1 = Button(miFrameop, width="30", height="1", text="Producto Más vendido")
+btnOP1.place(x=5, y=30)
+btnOP2 = Button(miFrameop, width="30", height="1", text="Producto Menos Vendido")
+btnOP2.place(x=250, y=30)
+btnOP3 = Button(miFrameop, width="30", height="1", text="Dinero en Caja")
+btnOP3.place(x=5, y=60)
+btnOP4 = Button(miFrameop, width="30", height="1", text="Promedio de Ventas")
+btnOP4.place(x=250, y=60)
 window.mainloop()
