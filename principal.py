@@ -346,9 +346,9 @@ def venderDerInf():
             cantBod4=int(cantBod4-cantVen4)
         else:
             cantBod4=int(cantVen4-cantBod4)
-        resul2IzqSup.configure(text=cantBod4)
-        resul3IzqSup.configure(text=(f"$ {venta4}"))
-        resul4IzqSup.configure(text=cantVen4)
+        resul2DerInf.configure(text=cantBod4)
+        resul3DerInf.configure(text=(f"$ {venta4}"))
+        resul4DerInf.configure(text=cantVen4)
         messagebox.showinfo(title="Advertencia",message=("Se ha Guardado Correctamente"))
     if cantBod4<cantMin4:
         messagebox.showinfo(title="Advertencia",message=("La cantidad en la bodega es menor a la minima, no se puede realizar la venta"))
