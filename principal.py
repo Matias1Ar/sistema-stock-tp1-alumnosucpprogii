@@ -84,8 +84,14 @@ def vender(listaresultados):
         cantidadB = int(listaresultados[2].get())
         cantV = int(cantidad_V.get())
         if cantV <= cantidadB:
+
             cantidadB = cantidadB-cantV
             cantidadB=str(cantidadB)
+            listaresultados[4].config(state="normal")
+            listaresultados[4].delete(0, END)
+            listaresultados[4].insert(0, cantV)
+            listaresultados[4].config(state="disabled")
+
             listaresultados[2].config(state="normal")
             listaresultados[2].delete(0,END)
             listaresultados[2].insert(0,cantidadB)
@@ -144,8 +150,39 @@ def  modificarpro(listaresultados,frame):
     listaresultados[3].config(state="normal")
     listaresultados[4].config(state="normal")
     listaresultados[5].config(state="normal")
-    btnOP1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
+    btnO1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
     btnOP1.place(x=5, y=60)
+
+def abastecerProducto(listaresultados):
+    def abastecer():
+        cantidadB = int(listaresultados[2].get())
+        cantidadmin = int(listaresultados[5].get())
+        cantA = int(cantidad_A.get())
+        if  cantidadB<=cantidadmin:
+            cantidadB = cantidadB+cantA
+            cantidadB=str(cantidadB)
+            listaresultados[5].config(state="normal")
+            listaresultados[5].config(state="disabled")
+
+            listaresultados[2].config(state="normal")
+            listaresultados[2].delete(0,END)
+            listaresultados[2].insert(0,cantidadB)
+            listaresultados[2].config(state="disabled")
+            window3.destroy()
+        else:
+            Label(window3, text="No puedes cargar tienes stock", font=("Arial  ", 11), fg="Red").place(x=0, y=110)
+
+
+
+    window3 = Tk()
+    window3.title("Abastecer")
+    window3.geometry("200x200")
+    Label(window3, text="ingrese la cantidad que desea\n guardar en la bodega : ", font=("Arial  ", 11)).place(x=0, y=2)
+    btnOacp = Button(window3, width="10", height="1", text="aceptar", command=abastecer)
+    btnOacp.place(x=5, y=90)
+    cantidad_A = Entry(window3)
+    cantidad_A.configure(width="11")
+    cantidad_A.place(x=5, y=60)
 
 listaBfram1=crearBotones(miFrame1)
 listaBfram2=crearBotones(miFrame2)
@@ -186,8 +223,11 @@ listaBfram3[2].config(command=cambiar3)
 #cambia producto4
 def  cambiar4():
     modificarpro(listaresfr4, miFrame4)
+#abastecerproducto1
+def abastecer1():
+    abastecerProducto(listaresfr1)
 
-
+listaBfram1[0].config(command=abastecer1)
 
 
 
