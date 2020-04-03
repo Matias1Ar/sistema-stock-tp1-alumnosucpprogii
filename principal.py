@@ -39,9 +39,28 @@ def cargarProductos(listaResultados,tipo,cantidadB,valorU,cantidasV,cantidadM,pr
     listaResultados[0].insert(0,producto)
     listaResultados[1].insert(0,tipo)
     listaResultados[2].insert(0,cantidadB)
-    listaResultados[3].insert(0,valorU)
     listaResultados[4].insert(0,cantidasV)
     listaResultados[5].insert(0,cantidadM)
+    if tipo == "Papeleria":
+
+        iva = valorU * 0.16
+        valorU = valorU + iva
+        valorU=str(valorU)
+        valorU=valorU [0:5]
+        valorU=float(valorU)
+    elif tipo=="Supermercado":
+        iva = valorU * 0.04
+        valorU = valorU + iva
+        valorU = str(valorU)
+        valorU = valorU[0:5]
+        valorU = float(valorU)
+    elif tipo == "Drogueria":
+        iva = valorU * 0.12
+        valorU = valorU + iva
+        valorU = str(valorU)
+        valorU = valorU[0:5]
+        valorU = float(valorU)
+    listaResultados[3].insert(0, valorU)
     for i in range(6):
         listaResultados[i].config(state="disable")
 def crearBotones(frame):
@@ -57,12 +76,10 @@ def crearBotones(frame):
     listaBtnes.append(btnCambiar)
     return listaBtnes
 
-
 #frameproductos1
 miFrame1 = Frame(window,width="400", height="320",bd="10",relief="groove",bg="dark blue")
 miFrame1.grid(row=0,column=0)
 producto1="lapiz"
-
 #frameproductos2
 producto2="aspirina"
 miFrame2 = Frame(window,width="400", height="320",bd="10",relief="groove",bg="dark blue")
@@ -110,15 +127,6 @@ def vender(listaresultados):
     cantidad_V.configure(width="11")
     cantidad_V.place(x=40, y=30)
 #crear botones
-
-
-
-
-
-
-
-
-
 #creando labels
 listaresfr1=crear_label(miFrame1)
 listaresfr2=crear_label(miFrame2)
@@ -148,8 +156,8 @@ def  modificarpro(listaresultados,frame):
     listaresultados[2].config(state="normal")
     listaresultados[3].config(state="normal")
     listaresultados[5].config(state="normal")
-    btnOP1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
-    btnOP1.place(x=5, y=60)
+    btnMODI = Button(frame, width="10", height="1", text="Modificar", command=guardar)
+    btnMODI.place(x=5, y=60)
 
 def abastecerProducto(listaresultados):
     def abastecer():
@@ -169,9 +177,6 @@ def abastecerProducto(listaresultados):
             window3.destroy()
         else:
             Label(window3, text="No puedes cargar tienes stock", font=("Arial  ", 11), fg="Red").place(x=0, y=110)
-
-
-
     window3 = Tk()
     window3.title("Abastecer")
     window3.geometry("200x200")
@@ -181,7 +186,7 @@ def abastecerProducto(listaresultados):
     cantidad_A = Entry(window3)
     cantidad_A.configure(width="11")
     cantidad_A.place(x=5, y=60)
-
+#CREAR BOTONES
 listaBfram1=crearBotones(miFrame1)
 listaBfram2=crearBotones(miFrame2)
 listaBfram3=crearBotones(miFrame3)
@@ -227,9 +232,6 @@ def abastecer1():
     abastecerProducto(listaresfr1)
 
 listaBfram1[0].config(command=abastecer1)
-
-
-
 #Botones opciones
 Label(miFrameop, text="Opciones: ", font=("Arial  ", 11), bg="dark blue", fg="white").place(x=0, y=0)
 btnOP1 = Button(miFrameop, width="30", height="1", text="Producto Más vendido")
@@ -240,6 +242,4 @@ btnOP3 = Button(miFrameop, width="30", height="1", text="Dinero en Caja")
 btnOP3.place(x=5, y=60)
 btnOP4 = Button(miFrameop, width="30", height="1", text="Promedio de Ventas")
 btnOP4.place(x=250, y=60)
-
-
 window.mainloop()
