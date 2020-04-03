@@ -129,36 +129,32 @@ cargarframe4=cargarProductos(listaresfr4,"Supermercado",15,150.0,0,20,producto4)
 def  modficarV(listaresultados):
     return  None
 
+
+
+
+
+
+
+#venderframee1
+listaBfram1=crearBotones(miFrame1)
 def vende1():
     vender(listaresfr1)
-def vende2():
-    vender(listaresfr2)
-def vende3():
-    vender(listaresfr3)
-def vende4():
-    vender(listaresfr4)
-
-
-listaBfram1=crearBotones(miFrame1)
-#venderframee1
 listaBfram1[1].config(command=vende1)
 #venderframe2
 listaBfram2=crearBotones(miFrame2)
+def vende2():
+    vender(listaresfr2)
 listaBfram2[1].config(command=vende2)
 #venderframe3
 listaBfram3=crearBotones(miFrame3)
+def vende3():
+    vender(listaresfr3)
 listaBfram3[1].config(command=vende3)
 #vendeframe4
 listaBfram4=crearBotones(miFrame4)
+def vende4():
+    vender(listaresfr4)
 listaBfram4[1].config(command=vende4)
-
-
-
-
-
-
-#Creando botones
-
 #Botones opciones
 Label(miFrameop, text="Opciones: ", font=("Arial  ", 11), bg="dark blue", fg="white").place(x=0, y=0)
 btnOP1 = Button(miFrameop, width="30", height="1", text="Producto Más vendido")
@@ -169,4 +165,6 @@ btnOP3 = Button(miFrameop, width="30", height="1", text="Dinero en Caja")
 btnOP3.place(x=5, y=60)
 btnOP4 = Button(miFrameop, width="30", height="1", text="Promedio de Ventas")
 btnOP4.place(x=250, y=60)
+
+
 window.mainloop()
