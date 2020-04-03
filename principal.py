@@ -139,7 +139,6 @@ def  modificarpro(listaresultados,frame):
         listaresultados[1].config(state="disabled")
         listaresultados[2].config(state="disabled")
         listaresultados[3].config(state="disabled")
-        listaresultados[4].config(state="disabled")
         listaresultados[5].config(state="disabled")
 
 
@@ -148,7 +147,6 @@ def  modificarpro(listaresultados,frame):
     listaresultados[1].config(state="normal")
     listaresultados[2].config(state="normal")
     listaresultados[3].config(state="normal")
-    listaresultados[4].config(state="normal")
     listaresultados[5].config(state="normal")
     btnOP1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
     btnOP1.place(x=5, y=60)
