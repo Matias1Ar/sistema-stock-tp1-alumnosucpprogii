@@ -5,7 +5,7 @@ window = Tk()
 window.title("Tienda")
 window.geometry("800x800")
 #variables globales
-dineroEnCaja=0
+dineroEnCaja=0.0
 producMasV=""
 producMenosV=""
 ProMventas=0.0
@@ -98,12 +98,17 @@ miFrameop.place(x=0,y=640)
 #crear label
 def vender(listaresultados):
     def  aceptar():
+        global  dineroEnCaja
+        global  proMventas
+        valorproducto=float(listaresultados[3].get())
         cantidadB = int(listaresultados[2].get())
         cantV = int(cantidad_V.get())
+        dineroEnCaja = valorproducto * cantV
+        dineroEnCaja = float(dineroEnCaja)
         if cantV <= cantidadB:
-
             cantidadB = cantidadB-cantV
             cantidadB=str(cantidadB)
+            listaresultados[3].get()
             listaresultados[4].config(state="normal")
             listaresultados[4].delete(0, END)
             listaresultados[4].insert(0, cantV)
@@ -117,6 +122,8 @@ def vender(listaresultados):
 
         else:
             Label(window2, text="No tienes stock ", font=("Arial  ", 11), fg="Red").place(x=0, y=90)
+        return  (dineroEnCaja,cantV)
+
     window2 = Tk()
     window2.title("venta")
     window2.geometry("200x200")
@@ -126,6 +133,7 @@ def vender(listaresultados):
     cantidad_V = Entry(window2)
     cantidad_V.configure(width="11")
     cantidad_V.place(x=40, y=30)
+
 #crear botones
 #creando labels
 listaresfr1=crear_label(miFrame1)
@@ -186,6 +194,9 @@ def abastecerProducto(listaresultados):
     cantidad_A = Entry(window3)
     cantidad_A.configure(width="11")
     cantidad_A.place(x=5, y=60)
+def dinero_en_Caja():
+    dineroEnCaja=vender()
+
 #CREAR BOTONES
 listaBfram1=crearBotones(miFrame1)
 listaBfram2=crearBotones(miFrame2)
