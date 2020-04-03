@@ -127,7 +127,7 @@ cargarframe4=cargarProductos(listaresfr4,"Supermercado",15,150.0,0,20,producto4)
 
 
 
-def  modficarpro(listaresultados,frame):
+def  modificarpro(listaresultados,frame):
     def guardar():
         listaresultados[0].config(state="disabled")
         listaresultados[1].config(state="disabled")
@@ -136,8 +136,7 @@ def  modficarpro(listaresultados,frame):
         listaresultados[4].config(state="disabled")
         listaresultados[5].config(state="disabled")
 
-    btnOP1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
-    btnOP1.place(x=5, y=60)
+
 
     listaresultados[0].config(state="normal")
     listaresultados[1].config(state="normal")
@@ -145,6 +144,8 @@ def  modficarpro(listaresultados,frame):
     listaresultados[3].config(state="normal")
     listaresultados[4].config(state="normal")
     listaresultados[5].config(state="normal")
+    btnOP1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
+    btnOP1.place(x=5, y=60)
 
 listaBfram1=crearBotones(miFrame1)
 listaBfram2=crearBotones(miFrame2)
@@ -170,38 +171,26 @@ listaBfram4[1].config(command=vende4)
 #--------------------------------------------------------------
 #cambia producto1
 def  cambiar1():
-        modficarpro(listaresfr1,miFrame1)
+    modificarpro(listaresfr1, miFrame1)
+
 listaBfram1[2].config(command=cambiar1)
 #cambia producto2
-def cambiar2():
-    modficarpro(listaresfr2, miFrame2)
-listaBfram1[2].config(command=cambiar2)
+def  cambiar2():
+    modificarpro(listaresfr2, miFrame2)
+listaBfram2[2].config(command=cambiar2)
 #cambia producto3
-def cambiar3():
-    modficarpro(listaresfr3, miFrame3)
-listaBfram1[2].config(command=cambiar3)
+def  cambiar3():
+    modificarpro(listaresfr3, miFrame3)
+
+listaBfram3[2].config(command=cambiar3)
 #cambia producto4
-def cambiar4():
-    modficarpro(listaresfr4, miFrame4)
-listaBfram1[2].config(command=cambiar4)
+def  cambiar4():
+    modificarpro(listaresfr4, miFrame4)
 
 
 
-#venderframe2
-listaBfram2=crearBotones(miFrame2)
-def vende2():
-    vender(listaresfr2)
-listaBfram2[1].config(command=vende2)
-#venderframe3
-listaBfram3=crearBotones(miFrame3)
-def vende3():
-    vender(listaresfr3)
-listaBfram3[1].config(command=vende3)
-#vendeframe4
-listaBfram4=crearBotones(miFrame4)
-def vende4():
-    vender(listaresfr4)
-listaBfram4[1].config(command=vende4)
+
+
 #Botones opciones
 Label(miFrameop, text="Opciones: ", font=("Arial  ", 11), bg="dark blue", fg="white").place(x=0, y=0)
 btnOP1 = Button(miFrameop, width="30", height="1", text="Producto Más vendido")
