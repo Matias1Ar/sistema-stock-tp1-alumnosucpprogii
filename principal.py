@@ -150,7 +150,7 @@ def  modificarpro(listaresultados,frame):
     listaresultados[3].config(state="normal")
     listaresultados[4].config(state="normal")
     listaresultados[5].config(state="normal")
-    btnO1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
+    btnOP1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
     btnOP1.place(x=5, y=60)
 
 def abastecerProducto(listaresultados):
@@ -223,6 +223,7 @@ listaBfram3[2].config(command=cambiar3)
 #cambia producto4
 def  cambiar4():
     modificarpro(listaresfr4, miFrame4)
+listaBfram4[2].config(command=cambiar4)
 #abastecerproducto1
 def abastecer1():
     abastecerProducto(listaresfr1)
