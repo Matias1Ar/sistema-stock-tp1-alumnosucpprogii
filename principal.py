@@ -23,7 +23,8 @@ def  crear_label(frame):
     Label(frame, text=" Cantidad minima : ", font=("Arial ", 11),bg="dark blue",fg="white").place(x=140, y=150)
     for  i in  range(5):
         if i == 0:
-            prod_nom = Label(frame, text="", font=("Arial black ", 13), )
+            prod_nom = Entry(frame)
+            prod_nom.config(width="10")
             prod_nom.place(x=0, y=0)
             listaEntry.append(prod_nom)
 
@@ -35,13 +36,13 @@ def  crear_label(frame):
     return  listaEntry
 #cargar resultado de productos
 def cargarProductos(listaResultados,tipo,cantidadB,valorU,cantidasV,cantidadM,producto):
-    listaResultados[0].config(text=producto)
+    listaResultados[0].insert(0,producto)
     listaResultados[1].insert(0,tipo)
     listaResultados[2].insert(0,cantidadB)
     listaResultados[3].insert(0,valorU)
     listaResultados[4].insert(0,cantidasV)
     listaResultados[5].insert(0,cantidadM)
-    for i in range(1,6):
+    for i in range(6):
         listaResultados[i].config(state="disable")
 def crearBotones(frame):
     listaBtnes = list()
@@ -97,8 +98,8 @@ def vender(listaresultados):
     window2.title("venta")
     window2.geometry("200x200")
     Label(window2, text="ingrese la cantidad a vender : ", font=("Arial  ", 11)).place(x=0, y=2)
-    btnOP1 = Button(window2, width="10", height="1", text="aceptar",command=aceptar)
-    btnOP1.place(x=5, y=60)
+    btnOacp = Button(window2, width="10", height="1", text="aceptar",command=aceptar)
+    btnOacp.place(x=5, y=60)
     cantidad_V = Entry(window2)
     cantidad_V.configure(width="11")
     cantidad_V.place(x=40, y=30)
@@ -109,7 +110,7 @@ def vender(listaresultados):
 
 
 
-    #DESACTIVAR ENTRYS
+
 
 
 #creando labels
@@ -126,20 +127,66 @@ cargarframe4=cargarProductos(listaresfr4,"Supermercado",15,150.0,0,20,producto4)
 
 
 
-def  modficarV(listaresultados):
-    return  None
+def  modficarpro(listaresultados,frame):
+    def guardar():
+        listaresultados[0].config(state="disabled")
+        listaresultados[1].config(state="disabled")
+        listaresultados[2].config(state="disabled")
+        listaresultados[3].config(state="disabled")
+        listaresultados[4].config(state="disabled")
+        listaresultados[5].config(state="disabled")
 
+    btnOP1 = Button(frame, width="10", height="1", text="Modificar", command=guardar)
+    btnOP1.place(x=5, y=60)
 
+    listaresultados[0].config(state="normal")
+    listaresultados[1].config(state="normal")
+    listaresultados[2].config(state="normal")
+    listaresultados[3].config(state="normal")
+    listaresultados[4].config(state="normal")
+    listaresultados[5].config(state="normal")
 
-
-
-
-
-#venderframee1
 listaBfram1=crearBotones(miFrame1)
+listaBfram2=crearBotones(miFrame2)
+listaBfram3=crearBotones(miFrame3)
+listaBfram4=crearBotones(miFrame4)
+#venderframee1
 def vende1():
     vender(listaresfr1)
 listaBfram1[1].config(command=vende1)
+#venderframee2
+def vende2():
+    vender(listaresfr2)
+listaBfram2[1].config(command=vende2)
+#venderframe3
+def vende3():
+    vender(listaresfr3)
+listaBfram3[1].config(command=vende3)
+#venderframe4
+def vende4():
+    vender(listaresfr4)
+listaBfram4[1].config(command=vende4)
+
+#--------------------------------------------------------------
+#cambia producto1
+def  cambiar1():
+        modficarpro(listaresfr1,miFrame1)
+listaBfram1[2].config(command=cambiar1)
+#cambia producto2
+def cambiar2():
+    modficarpro(listaresfr2, miFrame2)
+listaBfram1[2].config(command=cambiar2)
+#cambia producto3
+def cambiar3():
+    modficarpro(listaresfr3, miFrame3)
+listaBfram1[2].config(command=cambiar3)
+#cambia producto4
+def cambiar4():
+    modficarpro(listaresfr4, miFrame4)
+listaBfram1[2].config(command=cambiar4)
+
+
+
 #venderframe2
 listaBfram2=crearBotones(miFrame2)
 def vende2():
