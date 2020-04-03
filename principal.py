@@ -4,24 +4,27 @@ from tkinter import messagebox
 window = Tk()
 window.title("Tienda")
 window.geometry("800x800")
-#variables
-producto1="lapiz"
-producto2="aspirina"
-producto3="borrador"
-producto4="pan"
-productom=""
-resultado="1"
+#variables globales
+dineroEnCaja=0
+producMasV=""
+producMenosV=""
+ProMventas=0.0
 window.resizable(0,0)
 #frameproductos1
+producto1="lapiz"
 miFrame1 = Frame(window,width="400", height="320",bd="10",relief="groove",bg="dark blue")
 miFrame1.grid(row=0,column=0)
+
 #frameproductos2
+producto2="aspirina"
 miFrame2 = Frame(window,width="400", height="320",bd="10",relief="groove",bg="dark blue")
 miFrame2.grid(row=0,column=1)
 #frameproducto3
+producto3="borrador"
 miFrame3= Frame(window,width="400", height="320",bd="10",relief="groove",bg="dark blue")
 miFrame3.grid(row=1,column=0)
 #frameproducto4
+producto4="pan"
 miFrame4 = Frame(window,width="400", height="320",bd="10",relief="groove",bg="dark blue")
 miFrame4.grid(row=1,column=1)
 #frameopciones
@@ -60,12 +63,12 @@ def crearBotones(frame):
     return listaBtnes
 
 
-def cargarProductos(listaResultados,resulta1,resulta2,resulta3,resulta4,resulta5):
-    listaResultados[0].insert(0,resulta1)
-    listaResultados[1].insert(0,resulta2)
-    listaResultados[2].insert(0,resulta3)
-    listaResultados[3].insert(0,resulta4)
-    listaResultados[4].insert(0,resulta5)
+def cargarProductos(listaResultados,tipo,cantidadB,valorU,cantidasV,cantidadM):
+    listaResultados[0].insert(0,tipo)
+    listaResultados[1].insert(0,cantidadB)
+    listaResultados[2].insert(0,valorU)
+    listaResultados[3].insert(0,cantidasV)
+    listaResultados[4].insert(0,cantidadM)
     #DESACTIVAR ENTRYS
     for i in range(5):
         listaResultados[i].config(state="disabled")
@@ -81,6 +84,22 @@ cargarframe1=cargarProductos(listaresfr1,"Papeleria",18,550.0,0,5)
 cargarframe2=cargarProductos(listaresfr2,"Drogueria",25,109.5,0,8)
 cargarframe3=cargarProductos(listaresfr3,"Papeleria",30,207.3,0,10)
 cargarframe4=cargarProductos(listaresfr4,"Supermercado",15,150.0,0,20)
+def vender(listaresultados):
+    window = Tk()
+    window.title("venta")
+    window.geometry("200x200")
+    cantidadB=listaresultados[1].get()
+    cantidad_V = Entry(window)
+    cantidad_V.configure(width="11")
+    cantidad_V.place(x=40, y=30)
+    cantV=cantidad_V.get()
+    Label(window, text="ingrese la cantidad a vender : ", font=("Arial  ", 11)).place(x=0, y=2)
+    if cantV>cantidadB:
+        cantidadB=cantV-cantidadB
+
+listabtnfr1=crearBotones(miFrame1)
+listabtnfr1[1].config(command=lambda :vender(listaBfram1))
+
 
 
 
@@ -97,6 +116,6 @@ btnOP2 = Button(miFrameop, width="30", height="1", text="Producto Menos Vendido"
 btnOP2.place(x=250, y=30)
 btnOP3 = Button(miFrameop, width="30", height="1", text="Dinero en Caja")
 btnOP3.place(x=5, y=60)
-btnOP4 = Button(miFrameop, width="30", height="1", text="Promedio de Ventas")
+btnOP4 = Button(miFrameop, width="30", height="1", text="Promedio de Ventas",command=lambda :vender(listaresfr1))
 btnOP4.place(x=250, y=60)
 window.mainloop()
