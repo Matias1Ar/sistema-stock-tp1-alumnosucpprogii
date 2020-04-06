@@ -105,6 +105,7 @@ def vender(listaresultados):
         dineroEnCaja = valorproducto * cantV
         dineroEnCaja = float(dineroEnCaja)
         listaregistros.append(dineroEnCaja)
+        listaregistros.append(cantV)
         if cantV <= cantidadB:
             cantidadB = cantidadB-cantV
             cantidadB=str(cantidadB)
@@ -195,9 +196,6 @@ def abastecerProducto(listaresultados):
     cantidad_A = Entry(window3)
     cantidad_A.configure(width="11")
     cantidad_A.place(x=5, y=60)
-def dinero_en_Caja():
-    dineroEnCaja=vender()
-
 #CREAR BOTONES
 listaBfram1=crearBotones(miFrame1)
 listaBfram2=crearBotones(miFrame2)
@@ -205,21 +203,34 @@ listaBfram3=crearBotones(miFrame3)
 listaBfram4=crearBotones(miFrame4)
 #venderframee1
 def vende1():
-    vender(listaresfr1)
+    caja1=vender(listaresfr1)
+    return  caja1
 listaBfram1[1].config(command=vende1)
 #venderframee2
+
 def vende2():
-    vender(listaresfr2)
+    caja2 = vender(listaresfr2)
+    return  caja2
 listaBfram2[1].config(command=vende2)
 #venderframe3
 def vende3():
-    vender(listaresfr3)
+    caja3=vender(listaresfr3)
+    return  caja3
+
 listaBfram3[1].config(command=vende3)
 #venderframe4
 def vende4():
-    vender(listaresfr4)
+    caja4=vender(listaresfr4)
+    return  caja4
 listaBfram4[1].config(command=vende4)
+def dinero_en_Caja():
+    caja1=vende1()
+    caja2=vende2()
+    caja3=vende3()
+    caja4=vende4()
 
+
+    messagebox.showinfo(message="Mensaje", title="Título")
 #--------------------------------------------------------------
 #cambia producto1
 def  cambiar1():
@@ -250,8 +261,9 @@ btnOP1 = Button(miFrameop, width="30", height="1", text="Producto Más vendido")
 btnOP1.place(x=5, y=30)
 btnOP2 = Button(miFrameop, width="30", height="1", text="Producto Menos Vendido")
 btnOP2.place(x=250, y=30)
-btnOP3 = Button(miFrameop, width="30", height="1", text="Dinero en Caja")
+btnOP3 = Button(miFrameop, width="30", height="1", text="Dinero en Caja",command=dinero_en_Caja)
 btnOP3.place(x=5, y=60)
 btnOP4 = Button(miFrameop, width="30", height="1", text="Promedio de Ventas")
 btnOP4.place(x=250, y=60)
+
 window.mainloop()
