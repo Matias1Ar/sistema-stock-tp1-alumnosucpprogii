@@ -98,13 +98,13 @@ miFrameop.place(x=0,y=640)
 #crear label
 def vender(listaresultados):
     def  aceptar():
-        global  dineroEnCaja
-        global  proMventas
+        listaregistros=list()
         valorproducto=float(listaresultados[3].get())
         cantidadB = int(listaresultados[2].get())
         cantV = int(cantidad_V.get())
         dineroEnCaja = valorproducto * cantV
         dineroEnCaja = float(dineroEnCaja)
+        listaregistros.append(dineroEnCaja)
         if cantV <= cantidadB:
             cantidadB = cantidadB-cantV
             cantidadB=str(cantidadB)
@@ -118,11 +118,12 @@ def vender(listaresultados):
             listaresultados[2].delete(0,END)
             listaresultados[2].insert(0,cantidadB)
             listaresultados[2].config(state="disabled")
+            print(listaregistros)
             window2.destroy()
 
         else:
             Label(window2, text="No tienes stock ", font=("Arial  ", 11), fg="Red").place(x=0, y=90)
-        return  (dineroEnCaja,cantV)
+        return  listaregistros
 
     window2 = Tk()
     window2.title("venta")
